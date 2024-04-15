@@ -1,0 +1,167 @@
+/* ==================== GOOGLE FONTS ==================== */
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap");
+
+
+/* ==================== CUSTOM PROPERTIES ==================== */
+:root {
+  /* --header-height: 5.6rem; */
+
+  /* ========== colors ========== */
+  --first-color: rgb(252, 61, 3);
+  --black-color: rgb(0, 0, 0);
+  --black-color-light: rgb(102, 102, 102);
+  --white-color: rgb(242, 242, 242);
+  --title-color: rgb(0, 0, 0);
+  --text-color: rgb(89, 89, 89);
+  --text-color-light: rgb(163, 163, 163);
+  --body-color: rgb(222, 222, 222);
+  --container-color: rgb(212, 212, 212);
+
+  /* ========== font and typography ========== */
+  --body-font: "Bai Jamjuree", sans-serif;
+  --biggest-font-size: 4rem;
+  --h1-font-size: 2.8rem;
+  --h2-font-size: 2rem;
+  --h3-font-size: 1.8rem;
+  --normal-font-size: 1.6rem;
+  --small-font-size: 1.4rem;
+  --smaller-font-size: 1.3rem;
+
+  /* ========== font weight ========== */
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /* ========== z index ========== */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/* ==================== Responsive typography ==================== */
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 7.2rem;
+    --h1-font-size: 4.8rem;
+    --h2-font-size: 2.4rem;
+    --h3-font-size: 2rem;
+    --normal-font-size: 1.6rem;
+    --small-font-size: 14rem;
+    --smaller-font-size: 13rem;
+  }
+}
+
+
+/* ======================== RESET STYLES ======================== */
+html{
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: var(--body-font);
+  scroll-behavior: smooth;
+}
+
+*, *:before, *:after{
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+}
+
+body{
+  font-size: var(--normal-font-size);
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-weight: var(--font-bold);
+}
+
+a{
+  color: unset;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* ======================== UTILITIES ======================== */
+.container{
+  width: min(90%, 112rem);
+  margin: 0 auto;
+}
+/* .container {
+  max-width: 112rem;
+  margin-inline: 2.4rem;
+} */
+
+.grid {
+  display: grid;
+  gap: 2.4rem;
+}
+
+.section {
+  padding-block: 6.4rem 0;
+}
+
+/* .section {
+  padding-block: 6.4rem 3.2rem;
+} */
+
+.section__title-1,
+.section__title-2 {
+  position: relative;
+  font-size: var(--h1-font-size);
+  width: max-content;
+  margin: 1.2rem auto 3.2rem;
+}
+
+.section__title-1 span,
+.section__title-2 span {
+  z-index: 5;
+  position: relative;
+}
+
+.section__title-1::after,
+.section__title-2::after {
+  content: "";
+  width: 4rem;
+  height: 2.8rem;
+  background-color: hsla(14, 98%, 50%, .2);
+  position: absolute;
+  top: -.4rem;
+  right: -.8rem;
+}
+
+.section__title-2::after {
+  top: initial;
+  bottom: -.4rem;
+}
+
+.geometric-box {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--first-color);
+  rotate: -30deg;
+}
+
+.geometric-box::after {
+  content: "";
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: .3rem solid var(--black-color);
+  left: -.5rem;
+  top: -.5rem;
+}
+
+.main {
+  overflow: hidden; /* For animation ScrollReveal */
+}
