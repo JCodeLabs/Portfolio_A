@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,13 +15,58 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
     <!-- custom styles -->
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
     <header class="header" id="header">
-      <h1>¡Hola! Mundo</h1>
+      <nav class="nav container">
+        <!-- logo -->
+        <a href="/" class="nav__logo">
+          <img src="assets/img/logo_64px.png" alt="Logo" class="nav__logo-img">
+          <span class="nav__logo-name">Juan Yepes.</span>
+        </a>
+        <!-- menu -->
+        <div class="nav__menu" id="nav-menu">
+          <span class="nav__title">Menú</span>
+          <h3 class="nav__name">Juan</h3>
+          <!-- navigation links -->
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#home" class="nav__link">Inicio</a>
+            </li>
+            <li class="nav__item">
+              <a href="#about" class="nav__link">Acerca de mí</a>
+            </li>
+            <li class="nav__item">
+              <a href="#projects" class="nav__link">Proyectos</a>
+            </li>
+            <li class="nav__item">
+              <a href="#contact" class="nav__link">Contacto</a>
+            </li>
+          </ul>
+          <!-- close button -->
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-line"></i>
+          </div>
+        </div>
+        <!-- nav/theme icons -->
+        <div class="nav__buttons">
+          <!-- hamburger menu -->
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-4-line"></i>
+          </div>
+        </div>
+
+      </nav>
     </header>
 
     <main class="main">
@@ -43,7 +88,6 @@
 
     <footer class="footer"></footer>
 
-  
     <!-- ---------- scroll up script ---------- -->
 
     <!-- ---------- scrollreveal script ---------- -->
