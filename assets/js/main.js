@@ -1,3 +1,12 @@
+/* ==================== SHADOW HEADER ==================== */
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+  // Add a class if the bottom offset is greater than 50 of the viewport
+  header.classList.toggle("shadow-header", window.scrollY > 50);
+});
+
+
 /* ==================== SHOW MENU ==================== */
 const navMenu = document.getElementById('nav-menu');
 const navToggle = document.getElementById('nav-toggle');
@@ -27,9 +36,6 @@ navLink.forEach(element => {
     navMenu.classList.remove('show-menu');
   });
 });
-
-
-/* ==================== SHADOW HEADER ==================== */
 
 
 /* ==================== EMAIL JS ==================== */
