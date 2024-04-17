@@ -315,10 +315,149 @@
 /* ========== animate scroll icon ========== */
 
 
-/* ==================== BUTTON ==================== */
-
-
 /* ==================== ABOUT ==================== */
+.about{
+  background-color: var(--container-color);
+  transition: background-color .4s;
+}
+
+.about__container{
+  gap: 0;
+}
+
+.about__perfil{
+  position: relative;
+  justify-self: center;
+  margin-block: 4rem 7.2rem;
+}
+
+.about__image{
+  width: 22rem;
+}
+
+.about__img{
+  position: relative;
+  border: .4rem solid var(--white-color);
+  z-index: 1;
+}
+
+.about__shadow,
+.about__line,
+.about__box{
+  position: absolute;
+}
+
+.about__shadow{
+  width: 15rem;
+  height: 38.5rem;
+  background-color: var(--body-color);
+  top: -4rem;
+  right: -5.6rem;
+  border-bottom: .4rem solid var(--first-color);
+  transition: background-color .4s;
+}
+
+.about__perfil .geometric-box{
+  top: -2.4rem;
+  right: -4.48rem;
+}
+
+
+.about__line{
+  top: 9.6rem;
+  right: -2rem;
+  width: 5rem;
+  filter: invert(1);
+  transition: filter .4s;
+}
+
+.about__box{
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--first-color);
+  right: -.8rem;
+  bottom: 2rem;
+}
+
+.about__info{
+  padding-left: 2rem;
+}
+
+.about__description{
+  position: relative;
+  color: var(--title-color);
+  margin-bottom: 2.4rem;
+}
+
+.about__description::after{
+  content: '';
+  width: 2rem;
+  height: .1rem;
+  background-color: var(--title-color);
+  position: absolute;
+  top: .8rem;
+  left: -2.8rem;
+}
+
+.about__list{
+  list-style: square;
+  color: var(--title-color);
+  margin-bottom: 4.8rem;
+}
+
+.about__buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+
+/* ==================== BUTTON ==================== */
+.button,
+.button__ghost{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+}
+
+.button{
+  background-color: var(--black-color);
+  padding: 1.76rem 2.4rem;
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+  transition: background-color .4s;
+}
+
+.button:hover{
+  background-color: var(--first-color);
+}
+
+.button i{
+  font-size: 2rem;
+}
+
+.button__ghost{
+  border: .3rem solid var(--black-color);
+  color: var(--black-color);
+  padding: .8rem;
+  transition: border .4s, color .4s;
+}
+
+.button__ghost i{
+  font-size: 2rem;
+  transition: transform .4s;
+}
+
+.button__ghost:hover{
+  border: .3rem solid var(--first-color);
+  /* color: var(--first-color); */
+}
+
+.button__ghost:hover i{
+  transform: scale(1.5);
+}
 
 
 /* ==================== SERVICES ==================== */
