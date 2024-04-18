@@ -601,10 +601,145 @@
       </section>
 
       <!-- -------------------- contact section -------------------- -->
-      <section class="contact section" id="contact"></section>
+      <section class="contact section" id="contact">
+        <div class="contact__container container grid">
+          <div class="contact__data">
+            <h2 class="section__title-2">
+              <span>Contáctame</span>
+            </h2>
+
+            <p class="contact__description-1">
+              Envíame cualquier mensaje que desees y te responderé.
+            </p>
+            <p class="contact__description-2">
+              Déjame tu <b>nombre</b> y <b>correo electrónico</b>, no recibirás
+              ningún correo no deseado ni otro tipo de contenido aparte de mi
+              respuesta.
+            </p>
+
+            <div class="geometric-box"></div>
+          </div>
+
+          <div class="contact__mail">
+            <h2 class="contact__title">Envíame un mensaje</h2>
+
+            <form action="" class="contact__form" id="contact-form">
+              <div class="contact__group">
+                <!-- form field -->
+                <div class="contact__box">
+                  <input
+                    type="text"
+                    name="user_name"
+                    id="name"
+                    class="contact__input"
+                    required
+                    placeholder="Nombre"
+                  />
+                  <label for="name" class="contact__label">Nombre</label>
+                </div>
+                <!-- form field -->
+                <div class="contact__box">
+                  <input
+                    type="email"
+                    name="user_email"
+                    id="email"
+                    class="contact__input"
+                    required
+                    placeholder="Correo electrónico"
+                  />
+                  <label for="email" class="contact__label"
+                    >Correo electrónico</label
+                  >
+                </div>
+              </div>
+
+              <!-- form field -->
+              <div class="contact__box">
+                <input
+                  type="text"
+                  name="user_subject"
+                  id="subject"
+                  class="contact__input"
+                  required
+                  placeholder="Asunto"
+                />
+                <label for="subject" class="contact__label">Asunto</label>
+              </div>
+
+              <!-- form field -->
+              <div class="contact__box contact__area">
+                <textarea
+                  name="user_message"
+                  id="message"
+                  class="contact__input"
+                  required
+                  placeholder="Mensaje"
+                ></textarea>
+                <label for="message" class="contact__label">Mensaje</label>
+              </div>
+
+              <!-- message - success -->
+              <p class="response__message" id="response-message"></p>
+
+              <button type="submit" class="contact__button button">
+                <i class="ri-send-plane-line"></i> Enviar mensaje
+              </button>
+            </form>
+          </div>
+
+          <div class="contact__social">
+            <img
+              src="assets/img/curved-arrow.svg"
+              alt="curved arrow"
+              class="contact__social-arrow"
+            />
+
+            <div class="contact__social-data">
+              <div>
+                <p class="contact__social-description-1">
+                  No envía correos electrónicos
+                </p>
+                <p class="contact__social-description-2">
+                  Escríbeme en mis redes sociales
+                </p>
+              </div>
+
+              <div class="contact__social-links">
+                <a
+                  href="https://www.linkedin.com/in/jcyepesgarcia/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact__social-link"
+                >
+                  <i class="ri-linkedin-box-line"></i>
+                </a>
+
+                <a
+                  href="https://www.facebook.com/?locale=es_LA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact__social-link"
+                >
+                  <i class="ri-facebook-circle-line"></i>
+                </a>
+
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact__social-link"
+                >
+                  <i class="ri-instagram-line"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer"></footer>
+    <!-- 1:35:44 -->
 
     <!-- ---------- scroll up script ---------- -->
 
@@ -612,7 +747,10 @@
     <script src="assets/js/scrollreveal.min.js"></script>
 
     <!-- ---------- email-js script ---------- -->
-
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
     <!-- ---------- custom script ---------- -->
     <script src="assets/js/main.js"></script>
   </body>
