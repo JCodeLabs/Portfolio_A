@@ -146,6 +146,14 @@
   width: 25%;
 }
 
+.active-link{
+  color: var(--white-color);
+}
+
+.active-link::after{
+  width: 25%;
+}
+
 .nav__close{
   position: absolute;
   top: 1.6rem;
@@ -891,9 +899,27 @@
 
 
 /* ==================== SCROLL UP ==================== */
+.scrollup{
+  position: fixed;
+  right: 1.6rem;
+  /* bottom: 4.8rem; */
+  bottom: -50%;
+  display: inline-flex;
+  padding: .8rem;
+  font-size: 2rem;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  z-index: var(--z-tooltip);
+  transition: bottom .4s, transform .4s, background-color .4s;
+}
 
+.scrollup:hover{
+  transform: translateY(-.8rem);
+}
 
-/* ========== Show Scroll Up ========== */
+.show-scrollup{
+  bottom: 4.8rem;
+}
 
 
 /* ==================== BREAKPOINTS ==================== */
