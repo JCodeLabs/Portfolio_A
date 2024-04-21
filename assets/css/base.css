@@ -68,6 +68,7 @@ body{
   line-height: 1.2;
   background-color: var(--body-color);
   color: var(--text-color);
+  transition: background-color .4s;
 }
 
 h1, h2, h3, h4 {

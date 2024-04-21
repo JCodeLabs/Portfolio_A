@@ -1,19 +1,6 @@
 /* ==================== BASE STYLES ==================== */
 @import url('base.css');
 
-
-/* ==================== THEME ==================== */
-
-
-/* ========== variables Dark theme ========== */
-
-
-/*
-	Color changes in some parts of
-	the website, in dark theme
-*/
-
-
 /* ==================== HEADER & NAV ==================== */
 .header{
   position: fixed;
@@ -22,7 +9,7 @@
   left: 0;
   background-color: var(--body-color);
   z-index: var(--z-fixed);
-  transition: box-shadow .4s;
+  transition: box-shadow .4s, background-color .4s;
 }
 
 .shadow-header{
@@ -162,6 +149,81 @@
   cursor: pointer;
 }
 
+.nav__buttons{
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+/* ==================== THEME ==================== */
+/* theme button */
+.change-theme{
+  font-size: 2rem;
+  color: var(--title-color);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.change-theme:hover{
+  color: var(--title-color);
+}
+
+/* variables Dark theme */
+body.dark-theme{
+  --first-color: hsl(14, 80%, 50%);
+  --black-color: hsl(0, 0%, 18%);
+  --black-color-light: hsl(0, 0%, 30%);
+  --title-color: hsl(0, 0%, 95%);
+  --text-color: hsl(0, 0%, 70%);
+  --body-color: hsl(0, 0%, 8%);
+  --container-color: hsl(0, 0%, 12%);
+}
+
+.dark-theme .shadow-header{
+  box-shadow: 0 1px 12px hsl(0, 0%, 0%, .6);
+}
+
+.dark-theme .section__title-1::after,
+.dark-theme .section__title-2::after{
+  background-color: hsla(14, 70%, 50%, .2);
+}
+
+.dark-theme :is(.home__arrow, .home__line, .about__line){
+  filter: none;
+}
+
+.dark-theme .home__description b{
+  background: linear-gradient(90deg, hsla(14, 80%, 50%, 0.3), hsla(14, 80%, 50%, 0));
+}
+
+.dark-theme :is(.button__ghost, .services__icon i){
+  color: var(--white-color);
+}
+
+.dark-theme .projects__card:hover{
+  background-color: var(--body-color);
+}
+
+.dark-theme :is(.contact__mail, .contact__input, .contact__label){
+  background-color: var(--container-color);
+}
+
+.dark-theme .footer{
+  background-color: hsl(0, 0%, 4%);
+}
+
+.dark-theme::-webkit-scrollbar{
+  background-color: hsl(0, 0%, 20%);
+}
+
+.dark-theme::-webkit-scrollbar-thumb{
+  background-color: hsl(0, 0%, 30%);
+}
+
+.dark-theme::-webkit-scrollbar-thumb:hover{
+  background-color: hsl(0, 0%, 40%);
+}
+
 /* hamburger menu */
 .nav__toggle{
   width: 3.2rem;
@@ -173,8 +235,6 @@
   font-size: 2rem;
   cursor: pointer;
 }
-
-/* ========== Active link ========== */
 
 
 /* ==================== HOME ==================== */
@@ -318,9 +378,6 @@
 .home__scroll-text{
   display: none;
 }
-
-
-/* ========== animate scroll icon ========== */
 
 
 /* ==================== ABOUT ==================== */
@@ -533,7 +590,7 @@
 
 
 /* ==================== PROJECTS ==================== */
-.porjects{
+.projects{
   background-color: var(--container-color);
   transition: background-color .4s;
 }
