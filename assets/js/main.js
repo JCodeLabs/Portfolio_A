@@ -1,49 +1,84 @@
 /* ==================== SHADOW HEADER ==================== */
+// Selecciona el elemento del encabezado
 const header = document.querySelector("header");
 
+// Agrega un evento de escucha al desplazamiento de la ventana
 window.addEventListener("scroll", () => {
-  // Add a class if the bottom offset is greater than 50 of the viewport
-  header.classList.toggle("shadow-header", window.scrollY > 50);
+  // Calcula si el desplazamiento vertical es mayor a 50 píxeles desde la parte superior
+  const shouldAddShadow = window.scrollY > 50;
+
+  // Aplica la clase "shadow-header" al encabezado si se cumple la condición, de lo contrario, la quita
+  header.classList.toggle("shadow-header", shouldAddShadow);
 });
 
-/* ==================== SHOW MENU ==================== */
+
+
+
+/* ==================== SHOW/HIDE MENU ==================== */
+// Selecciona los elementos del menú de navegación, el botón de alternar y el botón de cierre
 const navMenu = document.getElementById("nav-menu");
 const navToggle = document.getElementById("nav-toggle");
 const navClose = document.getElementById("nav-close");
 
-// show menu
+// Si existe el botón de alternar, agrega un evento de clic para mostrar el menú
 if (navToggle) {
   navToggle.addEventListener("click", () => {
+    // Agrega la clase "show-menu" al menú para mostrarlo
     navMenu.classList.add("show-menu");
   });
 }
 
-// hidden menu
+// Si existe el botón de cierre, agrega un evento de clic para ocultar el menú
 if (navClose) {
   navClose.addEventListener("click", () => {
+    // Quita la clase "show-menu" del menú para ocultarlo
     navMenu.classList.remove("show-menu");
   });
 }
 
 /* ========== remove menu mobile ========== */
-const navLink = document.querySelectorAll(".nav__link");
+// Selecciona todos los elementos con la clase "nav__link"
+const navLinks = document.querySelectorAll(".nav__link");
 
-navLink.forEach((element) => {
-  element.addEventListener("click", () => {
+// Agrega un evento de clic a cada enlace de navegación
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    // Selecciona el menú de navegación
     const navMenu = document.getElementById("nav-menu");
-    // When we click on each nav__link, we remove the show-menu class
+    
+    // Oculta el menú de navegación eliminando la clase "show-menu"
     navMenu.classList.remove("show-menu");
   });
 });
 
+
+
+
 /* ==================== EMAIL JS ==================== */
+// Selecciona el formulario de contacto y el elemento de respuesta
 const contactForm = document.getElementById("contact-form");
 const responseMessage = document.getElementById("response-message");
 
+// Función para mostrar un mensaje y limpiar los campos del formulario
+const showMessageAndResetForm = (message) => {
+  // Muestra el mensaje recibido
+  responseMessage.textContent = message;
+
+  // Elimina el mensaje después de cinco segundos
+  setTimeout(() => {
+    responseMessage.textContent = "";
+  }, 5000);
+
+  // Limpia los campos de entrada del formulario
+  contactForm.reset();
+};
+
+// Función para enviar el correo electrónico
 const sendEmail = (e) => {
+  // Previene el comportamiento predeterminado de enviar el formulario
   e.preventDefault();
 
-  // serviceID - templateID - #form - publickey
+  // Envía el formulario utilizando la API de emailjs
   emailjs
     .sendForm(
       "service_xd0aewl",
@@ -53,42 +88,39 @@ const sendEmail = (e) => {
     )
     .then(
       () => {
-        // show sucess message
-        responseMessage.textContent = "Mensaje enviado correctamente ✅";
-
-        // Remove message after five seconds
-        setTimeout(() => {
-          responseMessage.textContent = "";
-        }, 5000);
-
-        // Clear input fields
-        contactForm.reset();
+        // Muestra un mensaje de éxito y limpia los campos del formulario
+        showMessageAndResetForm("Mensaje enviado correctamente ✅");
       },
       () => {
-        // Show error message
-        responseMessage.textContent =
-          "Mensaje no enviado (error del servidor) ❌";
-
-        // Remove message after five seconds
-        setTimeout(() => {
-          responseMessage.textContent = "";
-        }, 5000);
-
-        // Clear input fields
-        contactForm.reset();
+        // Muestra un mensaje de error en caso de fallo en el servidor y limpia los campos del formulario
+        showMessageAndResetForm("Mensaje no enviado (error del servidor) ❌");
       }
     );
 };
 
+// Agrega un evento de escucha al enviar el formulario
 contactForm.addEventListener("submit", sendEmail);
 
+
+
+
 /* ==================== SHOW SCROLL UP ==================== */
+// Selecciona el botón de scroll-up
 const scrollUp = document.getElementById("scroll-up");
 
-window.addEventListener("scroll", () => {
-  // when the scroll is higher than 350 viewport height, add the class show-scrollup
+// Función para controlar la visibilidad del botón de scroll-up
+const toggleScrollUpButton = () => {
+  // Agrega o quita la clase "show-scrollup" dependiendo del valor de window.scrollY
   scrollUp.classList.toggle("show-scrollup", window.scrollY >= 350);
-});
+};
+
+// Agrega un evento de escucha al desplazamiento de la ventana
+window.addEventListener("scroll", toggleScrollUpButton);
+
+
+
+
+
 
 /* ==================== SCROLL SECTIONS ACTIVE LINK ==================== */
 // Selecciona todas las secciones del documento HTML que tienen un atributo de ID
@@ -126,6 +158,9 @@ const scrollActive = () => {
 // Agrega un evento de escucha de desplazamiento a la ventana que llama a la función 'scrollActive'
 window.addEventListener("scroll", scrollActive);
 
+
+
+
 /* ==================== DARK LIGHT THEME ==================== */
 // Obtener elementos del DOM al inicio
 const themeButton = document.getElementById("theme-button");
@@ -161,84 +196,7 @@ themeButton.addEventListener("click", toggleTheme);
 // Aplicar el tema inicial al cargar la página
 updateTheme();
 
-/* ==============================
-            METODO 2
-==============================*/
-// Obtener elementos del DOM al inicio
-// const themeButton = document.getElementById("theme-button");
-// const body = document.body;
-// const logo = document.getElementById("logo");
 
-// // Obtener el tema actual del localStorage o establecerlo por defecto como claro
-// let isLightTheme = localStorage.getItem("theme") !== "dark-theme";
-
-// // Función para actualizar el tema en el body y en el localStorage
-// function updateTheme() {
-//   // Alterna la clase "light-theme" en el body según el estado del tema (claro u oscuro)
-//   body.classList.toggle("light-theme", isLightTheme);
-//   // Alterna la clase "dark-theme" en el body según el estado del tema (claro u oscuro)
-//   body.classList.toggle("dark-theme", !isLightTheme);
-//   // Establece el tema actual en el localStorage según el estado del tema (claro u oscuro)
-//   localStorage.setItem("theme", isLightTheme ? "light-theme" : "dark-theme");
-
-//   // Establecer el src de la imagen del logo según el tema actual
-//   logo.src = `assets/img/logo_${isLightTheme ? '64px' : 'light_64px'}.png`;
-// }
-
-// // Evento de clic en el botón de cambio de tema
-// themeButton.addEventListener("click", function() {
-//     isLightTheme = !isLightTheme;
-//     updateTheme();
-//     themeButton.classList.toggle('ri-sun-line', !isLightTheme); // Cambia el ícono del botón
-// });
-
-// // Aplicar el tema inicial al cargar la página
-// updateTheme(); // Actualizar el tema en el body
-// themeButton.classList.toggle('ri-sun-line', !isLightTheme); // Agregar la clase para el icono del botón si el tema es oscuro
-
-
-/* ==============================
-            METODO 3
-==============================*/
-// // Obtener el botón de tema del DOM
-// const themeButton = document.getElementById("theme-button");
-
-// // Definir las clases de tema oscuro y de ícono
-// const darkTheme = "dark-theme";
-// const iconTheme = "ri-sun-line";
-
-// // Tema previamente seleccionado (si el usuario lo seleccionó antes)
-// const selectedTheme = localStorage.getItem("selected-theme");
-// const selectedIcon = localStorage.getItem("selected-icon");
-
-// // Función para obtener el tema actual
-// const getCurrentTheme = () =>
-//   document.body.classList.contains(darkTheme) ? "dark" : "light";
-
-// // Función para obtener el ícono actual
-// const getCurrentIcon = () =>
-//   themeButton.classList.contains(iconTheme) ? "ri-moon-line" : "ri-sun-line";
-
-// // Validar si el usuario seleccionó previamente un tema
-// if (selectedTheme) {
-//   // Si se cumple la validación, ajustamos el tema y el ícono según la selección previa del usuario
-//   document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
-//     darkTheme
-//   );
-//   themeButton.classList[selectedIcon === "ri-moon-line" ? "add" : "remove"](
-//     iconTheme
-//   );
-// }
-
-// // Activar/desactivar el tema manualmente con el botón
-// themeButton.addEventListener("click", () => {
-//   // Alternar las clases de tema oscuro e ícono
-//   document.body.classList.toggle(darkTheme);
-//   themeButton.classList.toggle(iconTheme);
-//   // Guardar el tema y el ícono actual seleccionados por el usuario
-//   localStorage.setItem("selected-theme", getCurrentTheme());
-//   localStorage.setItem("selected-icon", getCurrentIcon());
-// });
 
 
 /* ==================== SCROLL REVEAL ANIMATION ==================== */

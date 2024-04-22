@@ -19,7 +19,7 @@
   --h1-font-size: 2.8rem;
   --h2-font-size: 2rem;
   --h3-font-size: 1.8rem;
-  --normal-font-size: 1.5rem;
+  --normal-font-size: 1.6rem;
   --small-font-size: 1.3rem;
   --smaller-font-size: 1.2rem;
 
@@ -41,7 +41,7 @@
     --h1-font-size: 4.8rem;
     --h2-font-size: 2.4rem;
     --h3-font-size: 2rem;
-    --normal-font-size: 1.6rem;
+    --normal-font-size: 1.8rem;
     --small-font-size: 1.4rem;
     --smaller-font-size: 1.3rem;
   }
@@ -93,10 +93,6 @@ img {
   width: min(90%, 112rem);
   margin: 0 auto;
 }
-/* .container {
-  max-width: 112rem;
-  margin-inline: 2.4rem;
-} */
 
 .grid {
   display: grid;
@@ -106,10 +102,6 @@ img {
 .section {
   padding-block: 6.4rem 3.2rem;
 }
-
-/* .section {
-  padding-block: 6.4rem 3.2rem;
-} */
 
 .section__title-1,
 .section__title-2 {
